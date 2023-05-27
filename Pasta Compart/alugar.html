@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Rent Mobility</title>
+    <link rel="stylesheet" href="style_carros.css">
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      input[type="text"], select {
+        margin-bottom: 10px;
+        padding: 5px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        background-color: #428bca;
+        color: #fff;
+        cursor: pointer;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <header>
+        <a href="index.html"><img src="logoSiteSmall.png" style="border-radius: 20px; width: 360px;"></a>
+        <div class="logo">
+            <h1>Rent Mobility</h1>
+        </div>
+        <div class="login">
+            <a href="login.html">Entrar</a>
+        </div>
+    </header>
+</header>
+
+<div style="color: white;">
+  <h1 style="margin-left: 700px;">Informações do Cliente</h1>
+  <form style="margin-left: 760px;">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+    
+    <label for="sobrenome">Sobrenome:</label>
+    <input type="text" id="sobrenome" name="sobrenome" required>
+    
+    <label for="pagamento">Método de pagamento:</label>
+    <select id="pagamento" name="pagamento" required onchange="mostrarCamposCartao()" required onchange ="mostrarcampopix()">
+      <option value="">-- Selecione uma opção --</option>
+      <option value="cartao">Cartão de crédito</option>
+      <option value="pix">PIX</option>
+    </select>
+    
+    <label for="rua">Rua:</label>
+    <input type="text" id="rua" name="rua" required>
+    
+    <label for="bairro">Bairro:</label>
+    <input type="text" id="bairro" name="bairro" required>
+    
+    <label for="cep">CEP:</label>
+    <input type="text" id="cep" name="cep" required>
+
+    <!------>
+
+    <div id="camposCartao" style="display: none;">
+        <div class="cartao">
+           <label for="numCartao">Número do cartão :</label>
+          <input type="text" id="numCartao" name="numCartao">
+          <br>   
+          <label for="dataValidade">Data de validade :</label>
+          <input style="margin-left: 10px;" type="text" id="dataValidade" name="dataValidade">
+          <br>
+          <label for="cvv">CVV :</label>
+          <input style="margin-left: 103px;" type="text" id="cvv" name="cvv">
+        </div>
+    </div>
+    </div>
+    
+    <button style="margin-left: 790px; width: 120px;" type="submit">Enviar</button>
+  </form>
+</div>
+
+<script>
+  function mostrarCamposCartao() {
+    var pagamentoSelect = document.getElementById("pagamento");
+    var camposCartaoDiv = document.getElementById("camposCartao");
+
+    if (pagamentoSelect.value === "cartao") {
+      camposCartaoDiv.style.display = "block";
+    } else {
+      camposCartaoDiv.style.display = "none";
+    }
+  }
+</script>
+
+    <footer style="font-style: italic; ">
+		<a style="color: rgb(96, 96, 253);" href="pagina_termos.html">termos e serviços</a> <br> <a style="color: rgb(96, 96, 253);" href="politica_privacidade.html">política de privacidade</a>
+		<p>&copy; 2023 Rent Mobility</p>
+	</footer>
+  </body>
+</html>
